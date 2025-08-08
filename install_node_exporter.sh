@@ -91,7 +91,7 @@ fi
 # === Create systemd service ===
 echo "[INFO] Writing systemd service..."
 
-sudo tee /etc/systemd/system/${SERVICE_NAME}.service > /dev/null <<EOF
+tee /etc/systemd/system/${SERVICE_NAME}.service > /dev/null <<EOF
 [Unit]
 Description=Prometheus Node Exporter
 After=network.target
@@ -107,8 +107,8 @@ WantedBy=multi-user.target
 EOF
 
 echo "[INFO] Reloading systemd..."
-sudo systemctl daemon-reexec
-sudo systemctl daemon-reload
-sudo systemctl enable --now ${SERVICE_NAME}
+systemctl daemon-reexec
+systemctl daemon-reload
+systemctl enable --now ${SERVICE_NAME}
 
 echo "[SUCCESS] node_exporter v${LATEST_VERSION} installed and running from $BIN_PATH"
