@@ -100,7 +100,7 @@ After=network.target
 User=nobody
 Group=nogroup
 Type=simple
-ExecStart=${BIN_PATH}
+ExecStart=${BIN_PATH} --collector.textfile.directory=${EXPORTER_DIR}/textfile_collector
 
 [Install]
 WantedBy=multi-user.target
