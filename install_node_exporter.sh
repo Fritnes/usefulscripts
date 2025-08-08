@@ -97,8 +97,6 @@ Description=Prometheus Node Exporter
 After=network.target
 
 [Service]
-User=nobody
-Group=nogroup
 Type=simple
 ExecStart=${BIN_PATH} --collector.textfile.directory=${EXPORTER_DIR}/textfile_collector
 
@@ -109,6 +107,7 @@ EOF
 echo "[INFO] Reloading systemd..."
 systemctl daemon-reexec
 systemctl daemon-reload
-systemctl enable --now ${SERVICE_NAME}
+systemctl enable ${SERVICE_NAME}
+systemctl restart ${SERVICE_NAME}
 
 echo "[SUCCESS] node_exporter v${LATEST_VERSION} installed and running from $BIN_PATH"
