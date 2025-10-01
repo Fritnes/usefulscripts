@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#How to use
+#curl -s https://raw.githubusercontent.com/Fritnes/usefulscripts/refs/heads/main/install_node_exporter.sh | bash
+
 set -e
 
 # === Parse CLI Argument ===

@@ -1,4 +1,8 @@
 #!/bin/bash
+
+#How to use
+#curl -s https://raw.githubusercontent.com/Fritnes/usefulscripts/refs/heads/main/install_docker.sh | bash
+
 set -e
 
 # Detect distribution and release

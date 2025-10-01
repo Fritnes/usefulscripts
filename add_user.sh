@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Usage:
-#   ./add_user.sh -u username -pkey "ssh-rsa ... key ..." [-s]
-#   ./add_user.sh -u username -pw "password" [-s]
-#   ./add_user.sh -u username [-s]   # пароль спросит интерактивно
+# How to use:
+#   curl -s https://raw.githubusercontent.com/Fritnes/usefulscripts/refs/heads/main/add_user.sh | bash -s -- -u myuser -pw "mypassword" [-s]
+#   curl -s https://raw.githubusercontent.com/Fritnes/usefulscripts/refs/heads/main/add_user.sh | bash -s -- -u myuser -pkey "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC..." [-s]
+#   curl -s https://raw.githubusercontent.com/Fritnes/usefulscripts/refs/heads/main/add_user.sh | bash -s -- -u myuser [-s]
 
 while [[ "$#" -gt 0 ]]; do
     case $1 in
