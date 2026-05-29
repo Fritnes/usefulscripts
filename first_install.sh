@@ -47,3 +47,6 @@ fi
 # --- End custom PS1 prompt ---
 EOF
 fi
+
+# --- Install usefull packages ---
+apt install net-tools
