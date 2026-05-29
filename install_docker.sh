@@ -15,7 +15,7 @@ sudo apt update -y
 # sudo apt dist-upgrade -y
 
 echo "[INFO] Installing prerequisites..."
-sudo apt install -y apt-transport-https ca-certificates curl software-properties-common gnupg-agent python3-pip
+sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent python3-pip
 
 echo "[INFO] Adding Docker GPG key..."
 curl -fsSL https://download.docker.com/linux/$DISTRO/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
