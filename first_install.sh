@@ -21,13 +21,25 @@ else
 fi
 visudo -cf /etc/sudoers || { echo "Invalid sudoers file!"; exit 1; }
 
-# --- SSHD hardening ---
-sed -i 's/^PermitEmptyPasswords.*/PermitEmptyPasswords no/' /etc/ssh/sshd_config || echo "PermitEmptyPasswords no" >> /etc/ssh/sshd_config
-sed -i 's/^PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config || echo "PermitRootLogin no" >> /etc/ssh/sshd_config
-sed -i 's/^PubkeyAuthentication.*/PubkeyAuthentication yes/' /etc/ssh/sshd_config || echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
+# PermitEmptyPasswords
+grep -q '^PermitEmptyPasswords' /etc/ssh/sshd_config && \
+  sed -i 's/^#\?PermitEmptyPasswords.*/PermitEmptyPasswords no/' /etc/ssh/sshd_config || \
+  echo "PermitEmptyPasswords no" >> /etc/ssh/sshd_config
+
+# PermitRootLogin
+grep -q '^PermitRootLogin' /etc/ssh/sshd_config && \
+  sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config || \
+  echo "PermitRootLogin no" >> /etc/ssh/sshd_config
+
+# PubkeyAuthentication
+grep -q '^PubkeyAuthentication' /etc/ssh/sshd_config && \
+  sed -i 's/^#\?PubkeyAuthentication.*/PubkeyAuthentication yes/' /etc/ssh/sshd_config || \
+  echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
 
 if [[ "$ALLOW_SSH_PASSWORD" != "true" ]]; then
-    sed -i 's/^PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config || echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
+    grep -q '^PasswordAuthentication' /etc/ssh/sshd_config && \
+      sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config || \
+      echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
 fi
 
 systemctl restart sshd
