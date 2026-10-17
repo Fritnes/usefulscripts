@@ -1,8 +1,6 @@
 #!/bin/bash
 
 set -euo pipefail
-# How to use
-# ./migrate_grafana_dashboards.sh http://old_url OLD_API_KEY http://new_url NEW_API_KEY ./staging false
 # =========================================================
 # INPUTS
 # =========================================================

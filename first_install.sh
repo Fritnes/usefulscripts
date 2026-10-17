@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# How to use:
-#   curl -s https://raw.githubusercontent.com/Fritnes/usefulscripts/refs/heads/main/first_install.sh | bash
-
 set -euo pipefail
 
 # Vars

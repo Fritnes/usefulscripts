@@ -1,18 +1,5 @@
 #!/bin/bash
 
-# How to use:
-# Password:
-#   curl -s https://raw.githubusercontent.com/Fritnes/usefulscripts/refs/heads/main/add_user.sh | bash -s -- -u myuser -pw "mypassword" [-s]
-#
-# Direct SSH key:
-#   curl -s https://raw.githubusercontent.com/Fritnes/usefulscripts/refs/heads/main/add_user.sh | bash -s -- -u myuser -pkey "ssh-rsa AAAA..." [-s]
-#
-# GitHub SSH keys:
-#   curl -s https://raw.githubusercontent.com/Fritnes/usefulscripts/refs/heads/main/add_user.sh | bash -s -- -u myuser -gh githubuser [-s]
-#
-# Interactive password:
-#   curl -s https://raw.githubusercontent.com/Fritnes/usefulscripts/refs/heads/main/add_user.sh | bash -s -- -u myuser [-s]
-
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -u) USERNAME="$2"; shift ;;
